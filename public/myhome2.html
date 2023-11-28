@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My MQTT Client</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="mycss.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="text-center">
+      <h1>My MQTT Client!</h1>
+      <h2>Send and receieve MQTT messages here using this client</h2>
+    </div>
+
+
+
+    <div class="col-md-6">
+      <h3>My forms:</h3>
+      <form>
+        <div class="form-group">
+          <label for="fsub_topic">Sub Topic:</label>
+          <input type="text" class="form-control" id="fsub_topic" name="fsub">
+        </div>
+        <!--<button type="submit" class="btn btn-primary" onclick="myFunction()">Subscribe</button>-->
+        <button type="button" class="btn btn-primary" onclick="handleSubscribeClick()">Subscribe</button>
+      </form>
+
+      <form>
+        <div class="form-group">
+          <label for="fpub_topic">Last name:</label>
+          <input type="text" class="form-control" id="fpub_topic" name="fpub_topic">
+        </div>
+        <div class="form-group">
+          <label for="pub_text">Pub Text:</label>
+          <input type="text" class="form-control" id="pub_text" name="pub_text">
+        </div>
+        <!--<button type="submit" class="btn btn-success" onclick="console.log('Button clicked 2')">Publish</button>-->
+        <button type="button" class="btn btn-success" onclick="handlePublishClick()">Publish</button>
+      </form>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+
+        <div style="padding-top: 55px;">
+          &nbsp;&nbsp;&nbsp;
+        </div>
+          <img
+            src="https://github.com/crapster-goh/test/blob/main/rooster-Rhode-Island-Red-roosters-chicken-domestication.jpg?raw=true"
+            alt="chicken" class="img-responsive" style="height: 200px;">
+        
+      </div>
+    </div>
+
+  </div>
+
+
+  <div style="padding-top: 30px;">
+
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Topic</h4>
+          <p id="topic-content"></p>
+        </div>
+
+        <div class="col-md-6">
+          <h4>Message</h4>
+          <p id="message-content"></p>
+        </div>
+      </div>
+
+      <!-- Container for displaying MQTT messages -->
+      <div id="message-container"></div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and your custom script -->
+  <!-- Include Paho MQTT library -->
+  <script src="mqttws31.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="myhome.js"></script>
+</body>
+
+</html>
