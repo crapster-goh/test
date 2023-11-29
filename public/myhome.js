@@ -13,7 +13,7 @@ TLS Websocket Port: 8884
 
 // Subscriber MQTT CLient
 
-const mqttClient_sub = new Paho.MQTT.Client('broker.hivemq.com', 8000, 'Dexter_lau_27s');
+const mqttClient_sub = new Paho.MQTT.Client('broker.hivemq.com', 8884, 'Dexter_lau_27s');
 
 // Set callback handlers for this MQTT client
 mqttClient_sub.onConnectionLost = onMqttConnectionLost_sub;
@@ -71,6 +71,7 @@ function onMqttMessageArrived_sub(message) {
 
 // Connect to the MQTT broker
 mqttClient_sub.connect({
+  useSSL: true,
   onSuccess: onMqttConnect_sub,
   onFailure: onFailure_sub,
 });
@@ -93,7 +94,7 @@ function handleSubscribeClick() {
 // Function to handle MQTT message sending
 function sendMQTTMessage(topic, message) {
   // Create an MQTT client instance
-  const client = new Paho.MQTT.Client('broker.hivemq.com', 8000, 'Dexter_26s');
+  const client = new Paho.MQTT.Client('broker.hivemq.com', 8884, 'Dexter_26s');
 
   // Set callback handlers
   client.onConnectionLost = onConnectionLost_sender;
@@ -101,6 +102,7 @@ function sendMQTTMessage(topic, message) {
 
   // Connect the client
   client.connect({
+    useSSL: true,
     onSuccess: onConnect_sender,
     onFailure: onFailure_sender,
   });
